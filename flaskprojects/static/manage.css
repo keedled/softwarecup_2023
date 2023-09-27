@@ -1,0 +1,68 @@
+#page4 {
+    text-align: center;
+}
+
+.manage1 {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.managecard {
+    width: 15%;
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
+
+.managelight-green {
+    background-color: #00d160;
+    border-radius: 10px;
+}
+
+.managelight-blue {
+    background-color: #0c9fff;
+    border-radius: 10px;
+}
+
+.managegray {
+    background-color: #e5e9f3;
+    color: #333333;
+    border-radius: 10px;
+}
+.notice-box {
+    border: 2px dashed blue;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 15px;
+}
+.notice-box h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.notice-box i {
+    color: #FF5733;
+    margin-right: 8px;
+    font-size: 1.2em;
+}
+
+.notice-box dl {
+    margin: 0;
+}
+
+.notice-box dt {
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.notice-box dd {
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+

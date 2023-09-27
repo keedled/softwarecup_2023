@@ -1,0 +1,285 @@
+[2023-07-10 16:50:24,245: INFO/MainProcess] Connected to redis://localhost:6379/0
+[2023-07-10 16:50:24,276: INFO/MainProcess] mingle: searching for neighbors
+[2023-07-10 16:50:25,405: INFO/MainProcess] mingle: all alone
+[2023-07-10 16:50:25,495: INFO/MainProcess] celery@LAPTOP-3JAB1MLG ready.
+[2023-07-10 16:50:25,628: INFO/MainProcess] Task celery_worker.test_model[f5f91c38-b690-4bf7-8dd3-86c6e1af4e6f] received
+[2023-07-10 16:50:25,877: INFO/MainProcess] Task celery_worker.test_model[4813d21e-b4e2-44b6-8623-5412a284df3c] received
+[2023-07-10 16:50:26,080: INFO/MainProcess] Task celery_worker.test_model[be60051c-e068-4032-a1d2-294ee74e43dd] received
+[2023-07-10 16:50:26,125: INFO/MainProcess] pidbox: Connected to redis://localhost:6379/0.
+[2023-07-10 16:50:26,298: INFO/MainProcess] Task celery_worker.test_model[9835e576-339a-426f-b84f-74c5e4acea18] received
+[2023-07-10 16:50:26,500: INFO/MainProcess] Task celery_worker.test_model[255b9958-ef9b-4a00-ad90-8bdf0737fbac] received
+[2023-07-10 16:50:26,559: ERROR/MainProcess] Task celery_worker.test_model[f5f91c38-b690-4bf7-8dd3-86c6e1af4e6f] raised unexpected: CatBoostError('C:/Go_Agent/pipelines/BuildMaster/catboost.git/catboost/libs/data/model_dataset_compatibility.cpp:81: At position 0 should be feature with name feature0 (found 0).')
+Traceback (most recent call last):
+  File "E:\anaconda3\lib\site-packages\celery\app\trace.py", line 477, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "E:\flaskprojects\celery_config.py", line 26, in __call__
+    return self.run(*args, **kwargs)
+  File "E:\flaskprojects\celery_worker.py", line 62, in test_model
+    test_predict = model.predict(x_test)
+  File "E:\anaconda3\lib\site-packages\catboost\core.py", line 5187, in predict
+    return self._predict(data, prediction_type, ntree_start, ntree_end, thread_count, verbose, 'predict', task_type)
+  File "E:\anaconda3\lib\site-packages\catboost\core.py", line 2546, in _predict
+    predictions = self._base_predict(data, prediction_type, ntree_start, ntree_end, thread_count, verbose, task_type)
+  File "E:\anaconda3\lib\site-packages\catboost\core.py", line 1813, in _base_predict
+    return self._object._base_predict(pool, prediction_type, ntree_start, ntree_end, thread_count, verbose, task_type)
+  File "_catboost.pyx", line 4760, in _catboost._CatBoost._base_predict
+  File "_catboost.pyx", line 4767, in _catboost._CatBoost._base_predict
+_catboost.CatBoostError: C:/Go_Agent/pipelines/BuildMaster/catboost.git/catboost/libs/data/model_dataset_compatibility.cpp:81: At position 0 should be feature with name feature0 (found 0).
+[2023-07-10 16:50:26,781: INFO/MainProcess] Task celery_worker.test_model[a7b771b0-34b9-4c1c-8b57-90707aa0d055] received
+[2023-07-10 16:50:26,976: ERROR/MainProcess] Task celery_worker.test_model[be60051c-e068-4032-a1d2-294ee74e43dd] raised unexpected: CatBoostError('C:/Go_Agent/pipelines/BuildMaster/catboost.git/catboost/libs/data/model_dataset_compatibility.cpp:81: At position 0 should be feature with name feature0 (found 0).')
+Traceback (most recent call last):
+  File "E:\anaconda3\lib\site-packages\celery\app\trace.py", line 477, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "E:\flaskprojects\celery_config.py", line 26, in __call__
+    return self.run(*args, **kwargs)
+  File "E:\flaskprojects\celery_worker.py", line 62, in test_model
+    test_predict = model.predict(x_test)
+  File "E:\anaconda3\lib\site-packages\catboost\core.py", line 5187, in predict
+    return self._predict(data, prediction_type, ntree_start, ntree_end, thread_count, verbose, 'predict', task_type)
+  File "E:\anaconda3\lib\site-packages\catboost\core.py", line 2546, in _predict
+    predictions = self._base_predict(data, prediction_type, ntree_start, ntree_end, thread_count, verbose, task_type)
+  File "E:\anaconda3\lib\site-packages\catboost\core.py", line 1813, in _base_predict
+    return self._object._base_predict(pool, prediction_type, ntree_start, ntree_end, thread_count, verbose, task_type)
+  File "_catboost.pyx", line 4760, in _catboost._CatBoost._base_predict
+  File "_catboost.pyx", line 4767, in _catboost._CatBoost._base_predict
+_catboost.CatBoostError: C:/Go_Agent/pipelines/BuildMaster/catboost.git/catboost/libs/data/model_dataset_compatibility.cpp:81: At position 0 should be feature with name feature0 (found 0).
+[2023-07-10 16:50:27,106: ERROR/MainProcess] Task celery_worker.test_model[255b9958-ef9b-4a00-ad90-8bdf0737fbac] raised unexpected: CatBoostError('C:/Go_Agent/pipelines/BuildMaster/catboost.git/catboost/libs/data/model_dataset_compatibility.cpp:81: At position 0 should be feature with name feature0 (found 0).')
+Traceback (most recent call last):
+  File "E:\anaconda3\lib\site-packages\celery\app\trace.py", line 477, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "E:\flaskprojects\celery_config.py", line 26, in __call__
+    return self.run(*args, **kwargs)
+  File "E:\flaskprojects\celery_worker.py", line 62, in test_model
+    test_predict = model.predict(x_test)
+  File "E:\anaconda3\lib\site-packages\catboost\core.py", line 5187, in predict
+    return self._predict(data, prediction_type, ntree_start, ntree_end, thread_count, verbose, 'predict', task_type)
+  File "E:\anaconda3\lib\site-packages\catboost\core.py", line 2546, in _predict
+    predictions = self._base_predict(data, prediction_type, ntree_start, ntree_end, thread_count, verbose, task_type)
+  File "E:\anaconda3\lib\site-packages\catboost\core.py", line 1813, in _base_predict
+    return self._object._base_predict(pool, prediction_type, ntree_start, ntree_end, thread_count, verbose, task_type)
+  File "_catboost.pyx", line 4760, in _catboost._CatBoost._base_predict
+  File "_catboost.pyx", line 4767, in _catboost._CatBoost._base_predict
+_catboost.CatBoostError: C:/Go_Agent/pipelines/BuildMaster/catboost.git/catboost/libs/data/model_dataset_compatibility.cpp:81: At position 0 should be feature with name feature0 (found 0).
+[2023-07-10 16:50:27,165: ERROR/MainProcess] Task celery_worker.test_model[4813d21e-b4e2-44b6-8623-5412a284df3c] raised unexpected: CatBoostError('C:/Go_Agent/pipelines/BuildMaster/catboost.git/catboost/libs/data/model_dataset_compatibility.cpp:81: At position 0 should be feature with name feature0 (found 0).')
+Traceback (most recent call last):
+  File "E:\anaconda3\lib\site-packages\celery\app\trace.py", line 477, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "E:\flaskprojects\celery_config.py", line 26, in __call__
+    return self.run(*args, **kwargs)
+  File "E:\flaskprojects\celery_worker.py", line 62, in test_model
+    test_predict = model.predict(x_test)
+  File "E:\anaconda3\lib\site-packages\catboost\core.py", line 5187, in predict
+    return self._predict(data, prediction_type, ntree_start, ntree_end, thread_count, verbose, 'predict', task_type)
+  File "E:\anaconda3\lib\site-packages\catboost\core.py", line 2546, in _predict
+    predictions = self._base_predict(data, prediction_type, ntree_start, ntree_end, thread_count, verbose, task_type)
+  File "E:\anaconda3\lib\site-packages\catboost\core.py", line 1813, in _base_predict
+    return self._object._base_predict(pool, prediction_type, ntree_start, ntree_end, thread_count, verbose, task_type)
+  File "_catboost.pyx", line 4760, in _catboost._CatBoost._base_predict
+  File "_catboost.pyx", line 4767, in _catboost._CatBoost._base_predict
+_catboost.CatBoostError: C:/Go_Agent/pipelines/BuildMaster/catboost.git/catboost/libs/data/model_dataset_compatibility.cpp:81: At position 0 should be feature with name feature0 (found 0).
+[2023-07-10 16:50:27,302: ERROR/MainProcess] Task celery_worker.test_model[9835e576-339a-426f-b84f-74c5e4acea18] raised unexpected: CatBoostError('C:/Go_Agent/pipelines/BuildMaster/catboost.git/catboost/libs/data/model_dataset_compatibility.cpp:81: At position 0 should be feature with name feature0 (found 0).')
+Traceback (most recent call last):
+  File "E:\anaconda3\lib\site-packages\celery\app\trace.py", line 477, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "E:\flaskprojects\celery_config.py", line 26, in __call__
+    return self.run(*args, **kwargs)
+  File "E:\flaskprojects\celery_worker.py", line 62, in test_model
+    test_predict = model.predict(x_test)
+  File "E:\anaconda3\lib\site-packages\catboost\core.py", line 5187, in predict
+    return self._predict(data, prediction_type, ntree_start, ntree_end, thread_count, verbose, 'predict', task_type)
+  File "E:\anaconda3\lib\site-packages\catboost\core.py", line 2546, in _predict
+    predictions = self._base_predict(data, prediction_type, ntree_start, ntree_end, thread_count, verbose, task_type)
+  File "E:\anaconda3\lib\site-packages\catboost\core.py", line 1813, in _base_predict
+    return self._object._base_predict(pool, prediction_type, ntree_start, ntree_end, thread_count, verbose, task_type)
+  File "_catboost.pyx", line 4760, in _catboost._CatBoost._base_predict
+  File "_catboost.pyx", line 4767, in _catboost._CatBoost._base_predict
+_catboost.CatBoostError: C:/Go_Agent/pipelines/BuildMaster/catboost.git/catboost/libs/data/model_dataset_compatibility.cpp:81: At position 0 should be feature with name feature0 (found 0).
+[2023-07-10 16:50:27,392: ERROR/MainProcess] Task celery_worker.test_model[a7b771b0-34b9-4c1c-8b57-90707aa0d055] raised unexpected: CatBoostError('C:/Go_Agent/pipelines/BuildMaster/catboost.git/catboost/libs/data/model_dataset_compatibility.cpp:81: At position 0 should be feature with name feature0 (found 0).')
+Traceback (most recent call last):
+  File "E:\anaconda3\lib\site-packages\celery\app\trace.py", line 477, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "E:\flaskprojects\celery_config.py", line 26, in __call__
+    return self.run(*args, **kwargs)
+  File "E:\flaskprojects\celery_worker.py", line 62, in test_model
+    test_predict = model.predict(x_test)
+  File "E:\anaconda3\lib\site-packages\catboost\core.py", line 5187, in predict
+    return self._predict(data, prediction_type, ntree_start, ntree_end, thread_count, verbose, 'predict', task_type)
+  File "E:\anaconda3\lib\site-packages\catboost\core.py", line 2546, in _predict
+    predictions = self._base_predict(data, prediction_type, ntree_start, ntree_end, thread_count, verbose, task_type)
+  File "E:\anaconda3\lib\site-packages\catboost\core.py", line 1813, in _base_predict
+    return self._object._base_predict(pool, prediction_type, ntree_start, ntree_end, thread_count, verbose, task_type)
+  File "_catboost.pyx", line 4760, in _catboost._CatBoost._base_predict
+  File "_catboost.pyx", line 4767, in _catboost._CatBoost._base_predict
+_catboost.CatBoostError: C:/Go_Agent/pipelines/BuildMaster/catboost.git/catboost/libs/data/model_dataset_compatibility.cpp:81: At position 0 should be feature with name feature0 (found 0).
+[2023-07-10 17:08:41,304: INFO/MainProcess] Task celery_worker.test_model[3ff2cd3d-d08c-46bc-9369-90c89ed0ac31] received
+[2023-07-10 17:08:41,637: ERROR/MainProcess] Task celery_worker.test_model[3ff2cd3d-d08c-46bc-9369-90c89ed0ac31] raised unexpected: CatBoostError('C:/Go_Agent/pipelines/BuildMaster/catboost.git/catboost/libs/data/model_dataset_compatibility.cpp:81: At position 0 should be feature with name feature0 (found 0).')
+Traceback (most recent call last):
+  File "E:\anaconda3\lib\site-packages\celery\app\trace.py", line 477, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "E:\flaskprojects\celery_config.py", line 26, in __call__
+    return self.run(*args, **kwargs)
+  File "E:\flaskprojects\celery_worker.py", line 62, in test_model
+    # print(type(test_predict))
+  File "E:\anaconda3\lib\site-packages\catboost\core.py", line 5187, in predict
+    return self._predict(data, prediction_type, ntree_start, ntree_end, thread_count, verbose, 'predict', task_type)
+  File "E:\anaconda3\lib\site-packages\catboost\core.py", line 2546, in _predict
+    predictions = self._base_predict(data, prediction_type, ntree_start, ntree_end, thread_count, verbose, task_type)
+  File "E:\anaconda3\lib\site-packages\catboost\core.py", line 1813, in _base_predict
+    return self._object._base_predict(pool, prediction_type, ntree_start, ntree_end, thread_count, verbose, task_type)
+  File "_catboost.pyx", line 4760, in _catboost._CatBoost._base_predict
+  File "_catboost.pyx", line 4767, in _catboost._CatBoost._base_predict
+_catboost.CatBoostError: C:/Go_Agent/pipelines/BuildMaster/catboost.git/catboost/libs/data/model_dataset_compatibility.cpp:81: At position 0 should be feature with name feature0 (found 0).
+[2023-07-10 17:11:18,230: INFO/MainProcess] Task celery_worker.train_model[c11772b1-0a8a-49a5-b056-c3e60d3ea934] received
+[2023-07-10 17:12:01,743: INFO/MainProcess] Task celery_worker.train_model[c11772b1-0a8a-49a5-b056-c3e60d3ea934] succeeded in 42.875s: {'message': 'Model trained and saved'}
+[2023-07-10 17:13:06,021: INFO/MainProcess] Task celery_worker.test_model[816eeba4-4a74-481e-8ec6-b61639a0df68] received
+[2023-07-10 17:13:06,361: ERROR/MainProcess] Task celery_worker.test_model[816eeba4-4a74-481e-8ec6-b61639a0df68] raised unexpected: CatBoostError('C:/Go_Agent/pipelines/BuildMaster/catboost.git/catboost/libs/data/model_dataset_compatibility.cpp:81: At position 0 should be feature with name feature0 (found 0).')
+Traceback (most recent call last):
+  File "E:\anaconda3\lib\site-packages\celery\app\trace.py", line 477, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "E:\flaskprojects\celery_config.py", line 26, in __call__
+    return self.run(*args, **kwargs)
+  File "E:\flaskprojects\celery_worker.py", line 62, in test_model
+    # print(type(test_predict))
+  File "E:\anaconda3\lib\site-packages\catboost\core.py", line 5187, in predict
+    return self._predict(data, prediction_type, ntree_start, ntree_end, thread_count, verbose, 'predict', task_type)
+  File "E:\anaconda3\lib\site-packages\catboost\core.py", line 2546, in _predict
+    predictions = self._base_predict(data, prediction_type, ntree_start, ntree_end, thread_count, verbose, task_type)
+  File "E:\anaconda3\lib\site-packages\catboost\core.py", line 1813, in _base_predict
+    return self._object._base_predict(pool, prediction_type, ntree_start, ntree_end, thread_count, verbose, task_type)
+  File "_catboost.pyx", line 4760, in _catboost._CatBoost._base_predict
+  File "_catboost.pyx", line 4767, in _catboost._CatBoost._base_predict
+_catboost.CatBoostError: C:/Go_Agent/pipelines/BuildMaster/catboost.git/catboost/libs/data/model_dataset_compatibility.cpp:81: At position 0 should be feature with name feature0 (found 0).
+[2023-07-10 17:13:10,485: INFO/MainProcess] Task celery_worker.test_model[25361002-0d47-431e-91b7-d461de1db84d] received
+[2023-07-10 17:13:10,821: ERROR/MainProcess] Task celery_worker.test_model[25361002-0d47-431e-91b7-d461de1db84d] raised unexpected: CatBoostError('C:/Go_Agent/pipelines/BuildMaster/catboost.git/catboost/libs/data/model_dataset_compatibility.cpp:81: At position 0 should be feature with name feature0 (found 0).')
+Traceback (most recent call last):
+  File "E:\anaconda3\lib\site-packages\celery\app\trace.py", line 477, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "E:\flaskprojects\celery_config.py", line 26, in __call__
+    return self.run(*args, **kwargs)
+  File "E:\flaskprojects\celery_worker.py", line 62, in test_model
+    # print(type(test_predict))
+  File "E:\anaconda3\lib\site-packages\catboost\core.py", line 5187, in predict
+    return self._predict(data, prediction_type, ntree_start, ntree_end, thread_count, verbose, 'predict', task_type)
+  File "E:\anaconda3\lib\site-packages\catboost\core.py", line 2546, in _predict
+    predictions = self._base_predict(data, prediction_type, ntree_start, ntree_end, thread_count, verbose, task_type)
+  File "E:\anaconda3\lib\site-packages\catboost\core.py", line 1813, in _base_predict
+    return self._object._base_predict(pool, prediction_type, ntree_start, ntree_end, thread_count, verbose, task_type)
+  File "_catboost.pyx", line 4760, in _catboost._CatBoost._base_predict
+  File "_catboost.pyx", line 4767, in _catboost._CatBoost._base_predict
+_catboost.CatBoostError: C:/Go_Agent/pipelines/BuildMaster/catboost.git/catboost/libs/data/model_dataset_compatibility.cpp:81: At position 0 should be feature with name feature0 (found 0).
+[2023-07-10 17:36:28,334: INFO/MainProcess] Task celery_worker.test_model[44ef0ee8-81a7-4f2b-89f6-7b71f9a03713] received
+[2023-07-10 17:36:28,657: ERROR/MainProcess] Task celery_worker.test_model[44ef0ee8-81a7-4f2b-89f6-7b71f9a03713] raised unexpected: CatBoostError('C:/Go_Agent/pipelines/BuildMaster/catboost.git/catboost/libs/data/model_dataset_compatibility.cpp:81: At position 0 should be feature with name feature0 (found 0).')
+Traceback (most recent call last):
+  File "E:\anaconda3\lib\site-packages\celery\app\trace.py", line 477, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "E:\flaskprojects\celery_config.py", line 26, in __call__
+    return self.run(*args, **kwargs)
+  File "E:\flaskprojects\celery_worker.py", line 62, in test_model
+    test_predict = model.predict(x_test)
+  File "E:\anaconda3\lib\site-packages\catboost\core.py", line 5187, in predict
+    return self._predict(data, prediction_type, ntree_start, ntree_end, thread_count, verbose, 'predict', task_type)
+  File "E:\anaconda3\lib\site-packages\catboost\core.py", line 2546, in _predict
+    predictions = self._base_predict(data, prediction_type, ntree_start, ntree_end, thread_count, verbose, task_type)
+  File "E:\anaconda3\lib\site-packages\catboost\core.py", line 1813, in _base_predict
+    return self._object._base_predict(pool, prediction_type, ntree_start, ntree_end, thread_count, verbose, task_type)
+  File "_catboost.pyx", line 4760, in _catboost._CatBoost._base_predict
+  File "_catboost.pyx", line 4767, in _catboost._CatBoost._base_predict
+_catboost.CatBoostError: C:/Go_Agent/pipelines/BuildMaster/catboost.git/catboost/libs/data/model_dataset_compatibility.cpp:81: At position 0 should be feature with name feature0 (found 0).
+[2023-07-10 17:43:19,208: INFO/MainProcess] Task celery_worker.test_model[b34e1361-d35b-4fc8-b93f-6dea6020ef51] received
+[2023-07-10 17:43:19,535: ERROR/MainProcess] Task celery_worker.test_model[b34e1361-d35b-4fc8-b93f-6dea6020ef51] raised unexpected: CatBoostError('C:/Go_Agent/pipelines/BuildMaster/catboost.git/catboost/libs/data/model_dataset_compatibility.cpp:81: At position 0 should be feature with name feature0 (found 0).')
+Traceback (most recent call last):
+  File "E:\anaconda3\lib\site-packages\celery\app\trace.py", line 477, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "E:\flaskprojects\celery_config.py", line 26, in __call__
+    return self.run(*args, **kwargs)
+  File "E:\flaskprojects\celery_worker.py", line 62, in test_model
+    # print(type(test_predict))
+  File "E:\anaconda3\lib\site-packages\catboost\core.py", line 5187, in predict
+    return self._predict(data, prediction_type, ntree_start, ntree_end, thread_count, verbose, 'predict', task_type)
+  File "E:\anaconda3\lib\site-packages\catboost\core.py", line 2546, in _predict
+    predictions = self._base_predict(data, prediction_type, ntree_start, ntree_end, thread_count, verbose, task_type)
+  File "E:\anaconda3\lib\site-packages\catboost\core.py", line 1813, in _base_predict
+    return self._object._base_predict(pool, prediction_type, ntree_start, ntree_end, thread_count, verbose, task_type)
+  File "_catboost.pyx", line 4760, in _catboost._CatBoost._base_predict
+  File "_catboost.pyx", line 4767, in _catboost._CatBoost._base_predict
+_catboost.CatBoostError: C:/Go_Agent/pipelines/BuildMaster/catboost.git/catboost/libs/data/model_dataset_compatibility.cpp:81: At position 0 should be feature with name feature0 (found 0).
+[2023-07-10 17:43:31,866: INFO/MainProcess] Task celery_worker.test_model[2e50b8d3-1288-43ae-9bf0-02cc6bca2da0] received
+[2023-07-10 17:43:32,203: ERROR/MainProcess] Task celery_worker.test_model[2e50b8d3-1288-43ae-9bf0-02cc6bca2da0] raised unexpected: CatBoostError('C:/Go_Agent/pipelines/BuildMaster/catboost.git/catboost/libs/data/model_dataset_compatibility.cpp:81: At position 0 should be feature with name feature0 (found 0).')
+Traceback (most recent call last):
+  File "E:\anaconda3\lib\site-packages\celery\app\trace.py", line 477, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "E:\flaskprojects\celery_config.py", line 26, in __call__
+    return self.run(*args, **kwargs)
+  File "E:\flaskprojects\celery_worker.py", line 62, in test_model
+    # print(type(test_predict))
+  File "E:\anaconda3\lib\site-packages\catboost\core.py", line 5187, in predict
+    return self._predict(data, prediction_type, ntree_start, ntree_end, thread_count, verbose, 'predict', task_type)
+  File "E:\anaconda3\lib\site-packages\catboost\core.py", line 2546, in _predict
+    predictions = self._base_predict(data, prediction_type, ntree_start, ntree_end, thread_count, verbose, task_type)
+  File "E:\anaconda3\lib\site-packages\catboost\core.py", line 1813, in _base_predict
+    return self._object._base_predict(pool, prediction_type, ntree_start, ntree_end, thread_count, verbose, task_type)
+  File "_catboost.pyx", line 4760, in _catboost._CatBoost._base_predict
+  File "_catboost.pyx", line 4767, in _catboost._CatBoost._base_predict
+_catboost.CatBoostError: C:/Go_Agent/pipelines/BuildMaster/catboost.git/catboost/libs/data/model_dataset_compatibility.cpp:81: At position 0 should be feature with name feature0 (found 0).
+[2023-07-10 17:49:36,869: INFO/MainProcess] Task celery_worker.train_model[e2442dd8-8ede-4836-b87f-470a0700f55d] received
+[2023-07-10 17:50:19,357: INFO/MainProcess] Task celery_worker.train_model[e2442dd8-8ede-4836-b87f-470a0700f55d] succeeded in 41.828000000008615s: {'message': 'Model trained and saved'}
+[2023-07-10 17:51:04,764: INFO/MainProcess] Task celery_worker.test_model[8aa096eb-313b-4aa9-9548-68a0cb47939b] received
+[2023-07-10 17:51:05,097: ERROR/MainProcess] Task celery_worker.test_model[8aa096eb-313b-4aa9-9548-68a0cb47939b] raised unexpected: CatBoostError('C:/Go_Agent/pipelines/BuildMaster/catboost.git/catboost/libs/data/model_dataset_compatibility.cpp:81: At position 0 should be feature with name feature0 (found 0).')
+Traceback (most recent call last):
+  File "E:\anaconda3\lib\site-packages\celery\app\trace.py", line 477, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "E:\flaskprojects\celery_config.py", line 26, in __call__
+    return self.run(*args, **kwargs)
+  File "E:\flaskprojects\celery_worker.py", line 62, in test_model
+    # print(type(test_predict))
+  File "E:\anaconda3\lib\site-packages\catboost\core.py", line 5187, in predict
+    return self._predict(data, prediction_type, ntree_start, ntree_end, thread_count, verbose, 'predict', task_type)
+  File "E:\anaconda3\lib\site-packages\catboost\core.py", line 2546, in _predict
+    predictions = self._base_predict(data, prediction_type, ntree_start, ntree_end, thread_count, verbose, task_type)
+  File "E:\anaconda3\lib\site-packages\catboost\core.py", line 1813, in _base_predict
+    return self._object._base_predict(pool, prediction_type, ntree_start, ntree_end, thread_count, verbose, task_type)
+  File "_catboost.pyx", line 4760, in _catboost._CatBoost._base_predict
+  File "_catboost.pyx", line 4767, in _catboost._CatBoost._base_predict
+_catboost.CatBoostError: C:/Go_Agent/pipelines/BuildMaster/catboost.git/catboost/libs/data/model_dataset_compatibility.cpp:81: At position 0 should be feature with name feature0 (found 0).
+[2023-07-10 18:06:27,443: INFO/MainProcess] Task celery_worker.train_model[4db7bde3-ce22-488d-87c3-82dada5a02e0] received
+[2023-07-10 18:06:27,492: ERROR/MainProcess] Task celery_worker.train_model[4db7bde3-ce22-488d-87c3-82dada5a02e0] raised unexpected: ValueError('DataFrame constructor not properly called!')
+Traceback (most recent call last):
+  File "E:\anaconda3\lib\site-packages\celery\app\trace.py", line 477, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "E:\flaskprojects\celery_config.py", line 26, in __call__
+    return self.run(*args, **kwargs)
+  File "E:\flaskprojects\celery_worker.py", line 26, in train_model
+    # dataset = pd.DataFrame.from_dict(dataset_dict)
+  File "E:\anaconda3\lib\site-packages\pandas\core\frame.py", line 1764, in from_dict
+    return cls(data, index=index, columns=columns, dtype=dtype)
+  File "E:\anaconda3\lib\site-packages\pandas\core\frame.py", line 781, in __init__
+    raise ValueError("DataFrame constructor not properly called!")
+ValueError: DataFrame constructor not properly called!
+[2023-07-10 18:10:11,266: INFO/MainProcess] Task celery_worker.train_model[99c918db-031c-4b61-8580-4226ae008447] received
+[2023-07-10 18:10:11,325: ERROR/MainProcess] Task celery_worker.train_model[99c918db-031c-4b61-8580-4226ae008447] raised unexpected: ValueError('DataFrame constructor not properly called!')
+Traceback (most recent call last):
+  File "E:\anaconda3\lib\site-packages\celery\app\trace.py", line 477, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "E:\flaskprojects\celery_config.py", line 26, in __call__
+    return self.run(*args, **kwargs)
+  File "E:\flaskprojects\celery_worker.py", line 26, in train_model
+    # dataset = pd.DataFrame.from_dict(dataset_dict)
+  File "E:\anaconda3\lib\site-packages\pandas\core\frame.py", line 1764, in from_dict
+    return cls(data, index=index, columns=columns, dtype=dtype)
+  File "E:\anaconda3\lib\site-packages\pandas\core\frame.py", line 781, in __init__
+    raise ValueError("DataFrame constructor not properly called!")
+ValueError: DataFrame constructor not properly called!
+[2023-07-10 19:30:11,264: INFO/MainProcess] Task celery_worker.train_model[8cb0165b-117b-4669-a6b1-5bc3b8a1eb42] received
+[2023-07-10 19:30:13,351: ERROR/MainProcess] Task celery_worker.train_model[8cb0165b-117b-4669-a6b1-5bc3b8a1eb42] raised unexpected: ValueError('DataFrame constructor not properly called!')
+Traceback (most recent call last):
+  File "E:\anaconda3\lib\site-packages\celery\app\trace.py", line 477, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "E:\flaskprojects\celery_config.py", line 26, in __call__
+    return self.run(*args, **kwargs)
+  File "E:\flaskprojects\celery_worker.py", line 26, in train_model
+    # dataset = pd.DataFrame.from_dict(dataset_dict)
+  File "E:\anaconda3\lib\site-packages\pandas\core\frame.py", line 1764, in from_dict
+    return cls(data, index=index, columns=columns, dtype=dtype)
+  File "E:\anaconda3\lib\site-packages\pandas\core\frame.py", line 781, in __init__
+    raise ValueError("DataFrame constructor not properly called!")
+ValueError: DataFrame constructor not properly called!

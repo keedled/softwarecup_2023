@@ -1,0 +1,105 @@
+.task-area {
+    margin-bottom: 20px;
+}
+
+.train-modules {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+.train-module {
+    position: relative;
+    margin-top: 3%;
+    margin-left: 5%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    margin-bottom: 2%;
+}
+
+.results {
+    overflow: auto;
+    position: absolute;
+    height: 90%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    top: 5%;
+    left: 32%;
+    width: 67%;
+}
+
+.train-module .h2 {
+
+    background-color: #FCFCFC;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+    border: 1px solid #ccc;
+}
+.warning-area {
+    border: 2px dashed cornflowerblue;
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    margin-left: 2%;
+}
+
+.warning-area p {
+    margin: 0;
+}
+
+.el-icon-warning {
+    color: #3276AB;
+}
+.el-table__header .cell {
+    color: #000;
+}
+
+.even-row {
+    background-color: #f2f2f2 !important;
+}
+
+.odd-row {
+    background-color: #ffffff !important;
+}
+.el-table__header-wrapper th {
+    background-color: cornflowerblue !important;
+}
+.el-table__row, .el-table__header {
+    border-color: #000 !important;
+}
+
+/*.el-table__cell {*/
+/*    border-right-color: #000 !important;*/
+/*}*/
+.my-dialog {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 70% !important;
+    height: 90vh !important;
+    margin: 0 !important;
+}
+
+.my-dialog .el-dialog__body {
+    height: calc(90% - 58px);
+    overflow: auto;
+}
+.el-progress {
+    width: 200px;
+    position: relative;
+    line-height: 1;
+}
+.label{
+    display: inline;
+}
+.el-table--border::after, .el-table--group::after {
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 100%;
+}
+.el-table::before {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0;
+}

@@ -1,0 +1,15 @@
+celery启动：
+celery -A task.celery worker  -l info -P eventlet
+并发的celery：
+celery -A task.celery worker -l info -P eventlet -c 2
+redis启动：
+redis-server.exe --service-start
+redis关闭：
+redis-server.exe --service-stop
+启动nginx：
+start nginx.exe
+安装了一个waitress这个wsgi服务器
+启动waitress：
+python -m waitress --listen=localhost:5000 app:app
+python -m waitress --listen=localhost:5001 app1:app
+python -m waitress --listen=localhost:5002 app2:app

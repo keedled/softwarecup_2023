@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>项目</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='node_modules/element-ui/lib/theme-chalk/index.css') }}"
+          type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static',filename='first-contain.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static',filename='nr.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static',filename='page-3.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static',filename='page-2.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static',filename='manage.css') }}" type="text/css">
+</head>
+<body>
+<div class="title-container">
+    <img src="{{ url_for('static',filename='logo.jpg') }}" alt="logo" class="logo">
+    <div style="position: absolute;margin-left: 33%" id="avatar">
+        <div class="avatar-dropdown-container">
+            <el-avatar icon="el-icon-user-solid" class="avatar-el-avatar"></el-avatar>
+            <div class="avatar-dropdown-content">
+                <a href="#">用户:</a>
+                <a href="#" id="nickname-area"></a>
+                <a href="#" id="logout-link">登出</a>
+            </div>
+        </div>
+    </div>
+</div>
+<ul class="navbar">
+    <li><a href="#" onclick="showPage(1)" id="a1" class="active"><i class="el-icon-s-home"></i>简介</a></li>
+    <li><a href="#" onclick="showPage(2)" id="a2"><i class="el-icon-s-platform"></i>模型训练</a></li>
+    <li><a href="#" onclick="showPage(3)" id="a3"><i class="el-icon-data-analysis"></i>模型预测</a></li>
+    <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn"><i class="el-icon-user-solid"></i>管理界面</a>
+        <div class="dropdown-content">
+            <a href="#" onclick="showPage(4)" id="a4"><i class="el-icon-tickets"></i>数据统计</a>
+            <a href="#" onclick="showPage(5)" id="a5"><i class="el-icon-setting"></i>人物管理</a>
+            <a href="#" onclick="showPage(6)" id="a6"><i class="el-icon-user"></i>超级管理员</a>
+        </div>
+    </li>
+</ul>
+
+<div class="main">
+    <div id="page1" class="page-content">
+        <div id="overlay" class="hidden"></div>
+        <div id="announcement-box" class="hidden">
+            <h3 id="announcement-title">公告</h3>
+            <p id="announcement-content"></p>
+            <button onclick="closeAnnouncement()" class="gg">Close</button>
+        </div>
+
+        <div style="height: 100%; width: 100%; display: flex; flex-wrap: nowrap; flex-direction: row; gap: 1rem; padding: 1rem; background-color: #f5f5f5;">
+            <div style="width: 90%; height: 100%; padding: 1rem; background-color: #ffffff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <div class="header">
+                    <h2>我们的项目：</h2>
+                    <p> 我们的项目是基于深度学习的分布式系统故障检测系统。这个项目是用来根据
+                        系统发生故障时的KPI指标（feature0、feature1 ...feature106共107个指标）
+                        来进行分类，借助这些数据，我们利用机器学习与web技术搭建了这个平台，平台功能如下：
+                    </p>
+                </div>
+                <div class="content">
+                    <div class="card">
+                        <div class="left">
+                            <div class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                     class="bi bi-arrow-bar-up" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                          d="M8 10a.5.5 0 0 0 .5-.5V3.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 3.707V9.5a.5.5 0 0 0 .5.5zm-7 2.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5z"/>
+                                </svg>
+                            </div>
+                            <div class="right">
+                                <h3>上传数据集</h3>
+                                <p>
+                                    在该平台中支持上传文件格式为.csv的训练集对模型进行训练和上传文件格式为.csv的测试集对模型的训练成果进行测试，测试的结果支持可视化。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="left">
+                            <div class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                     class="bi bi-arrow-bar-down" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                          d="M1 3.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5zM8 6a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 .708-.708L7.5 12.293V6.5A.5.5 0 0 1 8 6z"/>
+                                </svg>
+                            </div>
+                            <div class="right">
+                                <h3>下载模型和结果</h3>
+                                <p>
+                                    我们的平台支持训练模型的下载以及测试结果的下载，下载的模型为模型的name.pkl，下载的测试结果为测试结果的id.json。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="left">
+                            <div class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                     class="bi bi-bar-chart-line" viewBox="0 0 16 16">
+                                    <path d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2zm1 12h2V2h-2v12zm-3 0V7H7v7h2zm-5 0v-3H2v3h2z"/>
+                                </svg>
+                            </div>
+                            <div class="right">
+                                <h3>模型训练</h3>
+                                <p> 我们的平台中支持根据用户上传的数据集进行模型训练，并且为模型训练提供了进度条。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="left">
+                            <div class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                     class="bi bi-lightning-charge-fill" viewBox="0 0 16 16">
+                                    <path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"/>
+                                </svg>
+                            </div>
+                            <div class="right">
+                                <h3>结果测试</h3>
+                                <p>
+                                    根据训练好的模型以及上传的测试数据集，我们的平台可以测试结果，测试的结果会可视化展示在页面中，并且支持测试结果的下载</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="height: 45px"></div>
+            </div>
+
+            <div style="height:600px; width: 28%; padding: 20px;background-color: #ffffff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);"
+                 id="yh">
+                <div>
+                    <h3>用户信息:</h3>
+                    <p><strong>昵称：</strong><span id="nickname"></span></p>
+                    <p><strong>已训练模型数目：</strong><span id="m_cnt"></span></p>
+                    <p><strong>已测试数目：</strong><span id="p_cnt"></span></p>
+                </div>
+                <div id="zs" style="width: 100%;height: 300px;margin-top: 47%"></div>
+            </div>
+        </div>
+
+    </div>
+    <div id="page2" class="page-content" style="background-color: white; position: relative">
+        <div class="train-modules">
+            <h1 style="color: #3276AB;margin-left: 2%;">模型训练</h1>
+            <div class="warning-area">
+                <i class="el-icon-warning"></i>
+                <p style="color: #3276AB">注意上传的数据集为.csv格式</p>
+            </div>
+            <div class="train-module">
+                <div style="display: flex;justify-content: space-between;">
+                    <div style="flex-basis: 70%;">
+                        <div style="display: flex;align-items: center;margin-bottom: 20px;margin-left: 3%">
+                            <span style="min-width: 60px;">文件：</span>
+                            <el-upload
+                                    class="upload-demo"
+                                    action="javascript:void(0)"
+                                    :before-upload="() => false"
+                                    :on-change="file => handleFileChange(file)"
+                                    :on-success="handleUploadSuccess"
+                                    :on-error="handleUploadError"
+                                    :file-list="file[0] ? [file[0]] : []"
+                                    :auto-upload="false">
+                                <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
+                            </el-upload>
+                        </div>
+                        <div style="display: flex;align-items: center;margin-bottom: 20px;margin-left: 3%">
+                            <span class="label">模型</span>
+                            <el-input
+                                    v-model="modelName[0]"
+                                    placeholder="输入模型名称"
+                                    clearable>
+                            </el-input>
+                        </div>
+                        <div style="display: flex;align-items: center;margin-bottom: 20px;margin-left: 3%">
+                            <span class="label">进度：</span>
+                            <el-progress :text-inside="true"
+                                         :stroke-width="26"
+                                         :percentage="trainingProgress[0]"
+                                         :width="100">
+                            </el-progress>
+                        </div>
+                        <div style="display: flex;align-items: center;margin-bottom: 20px;margin-left: 3%">
+                            <span class="label"></span>
+                            <el-button type="primary" @click="startTraining">开始训练</el-button>
+                            <el-button type="success" @click="resetModule">返回</el-button>
+                        </div>
+                        <div class="block">
+                            <el-timeline>
+                                <el-timeline-item :timestamp="datasetUploadTimestamp" placement="top">
+                                    <el-card style="padding: 8px 12px;font-size: 0.9em;">
+                                        <h4>上传数据集:[[ datasetName ]]</h4>
+                                        <p>上传于 [[ datasetUploadTimestamp ]]</p>
+                                    </el-card>
+                                </el-timeline-item>
+                                <el-timeline-item :timestamp="modelNamingTimestamp" placement="top">
+                                    <el-card style="padding: 8px 12px;font-size: 0.9em;">
+                                        <h4>模型:[[ modelName[0] ]]</h4>
+                                        <p>命名于 [[ modelNamingTimestamp ]]</p>
+                                    </el-card>
+                                </el-timeline-item>
+                                <el-timeline-item :timestamp="trainingCompletionTimestamp" placement="top">
+                                    <el-card style="padding: 8px 12px;font-size: 0.9em;">
+                                        <h4>训练完成</h4>
+                                        <p>完成于 [[ trainingCompletionTimestamp ]]</p>
+                                    </el-card>
+                                </el-timeline-item>
+                            </el-timeline>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="results">
+            <el-table :data="tableData" style="height: 100%; overflow-y: auto;color: #2c3e50"
+                      header-row-class-name="header-green"
+                      :row-class-name="stripeRows"
+                      border>
+                <el-table-column type="index" label="序号" :width="50"></el-table-column>
+                <el-table-column prop="name" label="模型名字">
+                    <template slot-scope="scope">
+                        <el-input v-model="scope.row.name" @input="isEditing = true" clearable>
+                            <template slot="append">
+                                <el-button icon="el-icon-edit"
+                                           @click="editName(scope.$index,scope.row)"></el-button>
+                            </template>
+                        </el-input>
+                    </template>
+                </el-table-column>
+                <el-table-column prop="dataset_name" label="训练数据集名称" :width="160"></el-table-column>
+                <el-table-column prop="time" label="训练持续时间" :width="120"></el-table-column>
+                <el-table-column label="操作">
+                    <template slot-scope="scope">
+                        <el-button @click="deleteModel(scope.$index,scope.row)" type="danger">删除</el-button>
+                        <el-button @click="window.location.href='/download/' + scope.row.id" type="primary"
+                        >下载
+                        </el-button>
+                        <el-button @click="showDetails(scope.row)" type="info">详情</el-button>
+
+                    </template>
+                </el-table-column>
+                <el-dialog :visible.sync="showDialog" width="70%" :append-to-body="true" custom-class="my-dialog">
+                    <div style="display: flex;justify-content: space-between">
+                        <div style="width: 50%">
+                            <h2>[[ selectedmodel.name ]]</h2>
+                            <p>ID: [[ selectedmodel.id ]]</p>
+                            <p>文件路径: [[ selectedmodel.file_path ]]</p>
+                            <p>用户 ID: [[ selectedmodel.user_id ]]</p>
+                            <p>数据集名称: [[ selectedmodel.dataset_name ]]</p>
+                            {#                            <p>评分: [[ selectedmodel.score ]]</p>#}
+                            <p>总时间: [[ selectedmodel.time ]]s</p>
+                        </div>
+                        <el-image
+                                style="width: 50%;margin-top: -5%"
+                                :src="selectedmodel.url1"
+                                fit="cover">
+                        </el-image>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between;">
+
+                        <el-image
+                                style="width: 50%;"
+                                :src="selectedmodel.url2"
+                                fit="cover">
+                        </el-image>
+                        <el-image
+                                style="width: 50%;"
+                                :src="selectedmodel.url3"
+                                fit="cover">
+                        </el-image>
+                    </div>
+                </el-dialog>
+            </el-table>
+        </div>
+    </div>
+    <div id="page3" class="page-content">
+        <div class="left-section">
+            <h1 style="color: #3276AB;margin-left: 2%">模型预测：</h1>
+            <hr>
+            <div style="border: 1px dashed #333;padding: 20px;margin-left: 20px;">
+                <div style="display: flex;align-items: center;margin-bottom: 20px;">
+                    <span class="label">测试数据集：</span>
+                    <el-upload
+                            class="upload-demo"
+                            action="javascript:void(0)"
+                            :before-upload="() => false"
+                            :on-change="file => handleTestFileChange(file)"
+                            :on-success="handleUploadSuccess"
+                            :on-error="handleUploadError"
+                            :file-list="testFile ? [testFile] : []"
+                            :auto-upload="false"
+                    >
+                        <el-button slot="trigger" size="small" type="primary">上传测试集</el-button>
+                    </el-upload>
+                </div>
+                <div style="display: flex;align-items: center;margin-bottom: 20px;">
+                    <span class="label">选择模型：</span>
+                    <el-select v-model="selectedModelId" placeholder="选择模型">
+                        <el-option
+                                v-for="item in models"
+                                :key="item.userFriendlyId"
+                                :label="`${item.userFriendlyId}: ${item.name}`"
+                                :value="item.id"
+                        >
+                        </el-option>
+                    </el-select>
+                </div>
+                <div style="display: flex;align-items: center;margin-bottom: 20px;">
+                    <span style="min-width: 100px;"></span>
+                    <el-button type="primary" @click="startTesting">开始测试</el-button>
+                    <el-button style="margin-left: 10px;" type="danger" @click="resetPredictionModule">点击返回
+                    </el-button>
+                </div>
+            </div>
+            <div style="margin-left: 15%">
+                <img style="width: 70%;height: auto" src="{{ url_for('static',filename='ana.png') }}" alt="数值样例图">
+            </div>
+
+        </div>
+        <div class="right-section">
+            <div class="result-section">
+                <div id="result">
+                    <el-table :data="tableData2" style="overflow-y: auto;height: 100%">
+                        <el-table-column label="图片">
+                            <template slot-scope="scope">
+                                <img :src="scope.row.imageSrc" alt="图片" class="results_img">
+                            </template>
+                        </el-table-column>
+                        <el-table-column label="数据">
+                            <template slot-scope="scope">
+                                <div class="data-table">
+                                    <div v-for="(item, index) in scope.row.data" :key="index" class="class-n">
+                                        [[ index ]]类数据的个数为: [[ item ]]
+                                    </div>
+                                    <div class="data-row">
+                                        <el-button @click="window.location.href='/download_result/' + scope.row.id"
+                                                   type="primary">下载
+                                        </el-button>
+                                        <el-button type="danger" icon="el-icon-delete"
+                                                   @click="deleteResult(scope.row.id)"></el-button>
+                                    </div>
+                                </div>
+                            </template>
+                        </el-table-column>
+                    </el-table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="page4" class="page-content">
+        <h1 style="display: inline-block;">数据统计</h1>
+        <div>
+            <div class="manage1">
+                <div class="managecard managelight-green">今日数据：</div>
+                <div class="managecard managegray">注册用户数：[[ today_data.users ]]</div>
+                <div class="managecard managegray">模型训练量：[[ today_data.models ]]</div>
+                <div class="managecard managegray">模型预测数：[[ today_data.predictions ]]</div>
+            </div>
+
+            <div class="manage1">
+                <div class="managecard managelight-blue">总数据：</div>
+                <div class="managecard managegray">注册用户数：[[ total_data.users ]]</div>
+                <div class="managecard managegray">模型训练数：[[ total_data.models ]]</div>
+                <div class="managecard managegray">模型预测数：[[ total_data.predictions ]]</div>
+            </div>
+
+        </div>
+        <div id="page4-echarts" style="width: 1200px;height: 450px;margin-left: 5%;margin-top: 2%"></div>
+
+    </div>
+    <div id="page5" class="page-content">
+        <el-container style="height: 640px">
+            <el-aside width="24%" style="margin-top: 1%;margin-left: 1%">
+                <h2>公告发布：</h2>
+                <el-form ref="form" :model="form" label-width="80px">
+                    <el-form-item label="公告内容">
+                        <el-input type="textarea" v-model="form.content"></el-input>
+                    </el-form-item>
+                    <el-form-item>
+                        <el-button type="primary" @click="submitForm('form')">发布</el-button>
+                    </el-form-item>
+                </el-form>
+                <div class="notice-box">
+                    <h3>
+                        <i class="el-icon-warning"></i>
+                        注意事项：
+                    </h3>
+                    <dl>
+                        <dt>公告发布</dt>
+                        <dd>
+                            公告发布发布的是全员的公告，当你发布公告之后，如果用户登录进入或者刷新页面都会出现公告。如果想换一条公告的话，重新发布就行，重新发布的那一条会代替之前的。
+                        </dd>
+                        <dt>用户信息</dt>
+                        <dd>
+                            在这里我们展示了用户的一些非敏感信息，这里还支持用户封号功能，但是注意不要胡乱封号。还支持查询用户，受界面大小限制，我们在这进行了分页处理
+                        </dd>
+                        <dt>祝您操作愉快！</dt>
+                    </dl>
+                </div>
+            </el-aside>
+            <el-main>
+                <h2>用户管理：</h2>
+                <el-form inline>
+                    <el-form-item>
+                        <el-input style="width: 200px;" placeholder="请输入关键字查询" v-model="keywords"></el-input>
+                    </el-form-item>
+                    <el-form-item>
+                        <el-button type="primary" icon="el-icon-search" circle @click="search"
+                                   style="margin-right: 10px;"></el-button>
+                        <el-button type="primary" icon="el-icon-close" circle @click="reset"></el-button>
+                    </el-form-item>
+                </el-form>
+
+                <el-table :data="currentTableData" style="width: 100%;height: 400px">
+                    <el-table-column prop="id" label="id" :width="50"></el-table-column>
+                    <el-table-column prop="nickname" label="昵称"></el-table-column>
+                    <el-table-column prop="username" label="账号"></el-table-column>
+                    <el-table-column prop="created_at" label="创建时间"></el-table-column>
+                    <el-table-column prop="role" label="用户类型" :formatter="formatRole"></el-table-column>
+                    <el-table-column label="操作">
+                        <template slot-scope="scope">
+                            <el-button size="mini" @click="showdetails(scope.row)">详情</el-button>
+                            <el-button size="mini" type="danger" v-if="scope.row.is_banned == 1"
+                                       @click="banUser(scope.row)">封号
+                            </el-button>
+                            <el-button size="mini" v-if="scope.row.is_banned == 0"
+                                       @click="unbanUser(scope.row)">解封
+                            </el-button>
+                            <el-drawer :visible.sync="drawer" size="50%" direction="rtl" @opened="handleDrawerOpened">
+                                <p>模型数目: [[ userDetail.model_count ]]</p>
+                                <p>预测结果数目: [[ userDetail.prediction_count ]]</p>
+                                <p>最近一次登录: [[ userDetail.login_latest_time ]]</p>
+                                <p>最近一次训练模型: [[ userDetail.model_latest_time ]]</p>
+                                <p>最近一次预测: [[ userDetail.prediction_latest_time ]]</p>
+                                <div style="height: 300px; width:100%" ref="mainBarChart"></div>
+                                <div style="height: 500px; margin-top: 20px;width: 700px;margin-left: 20px"
+                                     ref="sortedBarChart"></div>
+                            </el-drawer>
+                        </template>
+                    </el-table-column>
+
+                </el-table>
+
+                <!-- 分页组件 -->
+                <el-pagination
+                        :current-page.sync="currentPage"
+                        :page-size="7"
+                        :total="tableData.length"
+                        layout="prev, pager, next"
+                        @current-change="handlePageChange"
+                        style="text-align: center; margin-top: 20px;">
+                </el-pagination>
+            </el-main>
+
+        </el-container>
+    </div>
+    <div id="page6" class="page-content">
+        <el-main>
+            <h2 style="text-align: center;">授权管理</h2>
+            <el-form inline>
+                <el-form-item>
+                    <el-input style="width: 200px;" placeholder="请输入关键字查询" v-model="keywords"></el-input>
+                </el-form-item>
+                <el-form-item>
+                    <el-button type="primary" icon="el-icon-search" circle @click="search"
+                               style="margin-right: 10px;"></el-button>
+                    <el-button type="primary" icon="el-icon-close" circle @click="reset"></el-button>
+                </el-form-item>
+            </el-form>
+
+            <el-table :data="currentTableData" style="width: 100%;height: 430px">
+                <el-table-column prop="id" label="id"></el-table-column>
+                <el-table-column prop="nickname" label="昵称"></el-table-column>
+                <el-table-column prop="username" label="账号"></el-table-column>
+                <el-table-column prop="created_at" label="创建时间"></el-table-column>
+                <el-table-column prop="role" label="用户类型" :formatter="formatRole"></el-table-column>
+                <el-table-column prop="is_banned" label="状态">
+                    <template slot-scope="statusScope">
+                        <span :style="statusStyle(statusScope.row.is_banned)">
+                            [[ formatBannedStatus(statusScope.row) ]]
+                        </span>
+                    </template>
+                </el-table-column>
+                <el-table-column label="操作">
+                    <template slot-scope="scope">
+                        <el-button size="mini" v-if="scope.row.role == 1" @click="setAdmin(scope.row)">成为管理员
+                        </el-button>
+                        <el-button size="mini" type="danger" v-if="scope.row.role == 2" @click="removeAdmin(scope.row)">
+                            取消管理员
+                        </el-button>
+                        <span v-if="scope.row.role == 3">无法操作</span>
+                    </template>
+                </el-table-column>
+            </el-table>
+
+            <!-- 分页组件 -->
+            <el-pagination
+                    :current-page.sync="currentPage"
+                    :page-size="7"
+                    :total="tableData.length"
+                    layout="prev, pager, next"
+                    @current-change="handlePageChange"
+                    style="text-align: center; margin-top: 20px;">
+            </el-pagination>
+        </el-main>
+
+    </div>
+</div>
+<script src="{{ url_for('static', filename='node_modules/vue/dist/vue.min.js') }}"></script>
+<script src="{{ url_for('static',filename='node_modules/element-ui/lib/index.js') }}"></script>
+<script src="{{ url_for('static',filename='node_modules/axios/dist/axios.min.js') }}"></script>
+<script src="{{ url_for('static',filename='node_modules/jquery/dist/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/socket.io/client-dist/socket.io.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/echarts/dist/echarts.min.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/highcharts/highcharts.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/highcharts/highcharts-3d.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='nr.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='train.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='test.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='page4.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='page5.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='page6.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+.first-contain {
+    width: 80%;
+    height: 100%;
+    margin-left: 10%;
+}
+
+.header {
+    width: 100%;
+    height: 20%;
+    background-color: #fefcfc;
+    text-align: center;
+}
+
+.header h2 {
+    color: #3276AB;
+}
+
+.content {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    width: 45%;
+    margin: 2%;
+    background-color: #fefcfc;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card .left {
+    display: flex;
+    flex-direction: row;
+}
+
+.card .icon {
+    padding: 10px;
+}
+
+.card .right {
+    padding: 10px;
+}
+
+.card .right h3 {
+    color: #3276AB;
+}
+
+.card .right p {
+    text-indent: 2em;
+}
+
+.card .title {
+    font-weight: bold;
+}
+
+.card .content {
+    margin-top: 10px;
+}
+
+/* 调整图标样式 */
+.card .icon svg {
+    width: 50px;
+    height: 50px;
+    fill: #3276AB;
+}
+.intro {
+    padding: 30px;
+    background: white;
+    border: #111111 1px;
+    border-radius: 3px;
+    margin-right: 20%;
+}

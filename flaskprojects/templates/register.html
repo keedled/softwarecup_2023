@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>注册</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='node_modules/bootstrap/dist/css/bootstrap.min.css') }}">
+    <style>
+        #app {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            height: 520px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="text-center">注册</h3>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" @submit="submitForm">
+                            <div class="form-group">
+                                <label for="nickname">昵称</label>
+                                <input type="text" class="form-control" id="nickname" name="nickname" maxlength="12"
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <label for="username">账号</label>
+                                <input type="text" class="form-control" id="username" name="username" minlength="6"
+                                       maxlength="12" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">密码</label>
+                                <div class="input-group">
+                                    <input type="password" class="form-control" id="password" name="password"
+                                           v-model="password" minlength="6" maxlength="12" required>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button"
+                                                @click="togglePasswordVisibility">
+                                            <i :class="showPassword ? 'bi bi-eye-slash' : 'bi bi-eye'"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm-password">确认密码</label>
+                                <div class="input-group">
+                                    <input type="password" class="form-control" id="confirm-password"
+                                           name="confirmPassword" v-model="confirmPassword" minlength="6" maxlength="12"
+                                           required>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button"
+                                                @click="toggleConfirmPasswordVisibility">
+                                            <i :class="showConfirmPassword ? 'bi bi-eye-slash' : 'bi bi-eye'"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group" style="margin-top: 50px">
+                                <button type="submit" class="btn btn-primary btn-block mx-auto d-block"
+                                        style="width: 50%;">注册
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer">
+                        <p class="text-center">已有账户? <a href="{{ url_for('login') }}">登录</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='node_modules/vue/dist/vue.min.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ url_for('static',filename='node_modules/axios/dist/axios.min.js') }}"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: function () {
+            return {
+                password: '',
+                confirmPassword: '',
+                showPassword: false,
+                showConfirmPassword: false,
+            };
+        },
+        methods: {
+            togglePasswordVisibility() {
+                this.showPassword = !this.showPassword;
+                let passwordInput = document.getElementById('password');
+                if (this.showPassword) {
+                    passwordInput.type = 'text';
+                } else {
+                    passwordInput.type = 'password';
+                }
+            },
+            toggleConfirmPasswordVisibility() {
+                this.showConfirmPassword = !this.showConfirmPassword;
+                let confirmPasswordInput = document.getElementById('confirm-password');
+                if (this.showConfirmPassword) {
+                    confirmPasswordInput.type = 'text';
+                } else {
+                    confirmPasswordInput.type = 'password';
+                }
+            },
+            submitForm(event) {
+                if (this.password !== this.confirmPassword) {
+                    alert('密码和确认密码不匹配！');
+                    event.preventDefault();
+                    return;
+                }
+                const form = event.target;
+                const formData = new FormData(form);
+                axios.post(form.action, formData)
+                    .then(response => {
+                        console.log('Response:', response);
+                        console.log('Response data:', response.data);
+                        if (response.data.status === 'success') {
+                            window.location.href = '/login';
+                        } else {
+                            alert(response.data.message);
+                        }
+                    })
+                    .catch(error => {
+                        if (error.response && error.response.data && error.response.data.message) {
+                            alert(error.response.data.message);
+                        } else {
+                            alert('发生错误，请稍后再试。');
+                        }
+                    });
+
+                event.preventDefault();
+            },
+        },
+    });
+</script>
+</body>
+</html>

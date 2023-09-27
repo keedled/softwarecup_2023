@@ -1,0 +1,46 @@
+.page-content {
+    position: relative;
+    overflow: hidden;
+}
+#page3{
+    background-color: white;
+}
+.left-section {
+    width: 35%;
+    float: left;
+    padding-right: 20px;
+    box-sizing: border-box;
+}
+.right-section {
+
+    width: 65%;
+    float: left;
+    box-sizing: border-box;
+}
+.divider {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 35%;
+    width: 1px;
+    background-color: #ccc;
+}
+.el-icon-download{
+    color: #3276AB;
+}
+#result {
+    margin-left: 2%;
+    margin-top: 1%;
+    width: 95%;
+    height: 630px;
+    background: white;
+}
+.class-n {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+.results_img{
+    width: auto;
+    height: 300px;
+}
